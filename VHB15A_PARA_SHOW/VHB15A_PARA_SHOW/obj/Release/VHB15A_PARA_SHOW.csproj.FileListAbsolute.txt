@@ -1,0 +1,10 @@
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\bin\Release\VHB15A_PARA_SHOW.exe.config
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\bin\Release\VHB15A_PARA_SHOW.exe
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\bin\Release\VHB15A_PARA_SHOW.pdb
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.Form1.resources
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.Properties.Resources.resources
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.csproj.GenerateResource.cache
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.csproj.CoreCompileInputs.cache
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.exe
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.pdb
+D:\Users\LENOVO\Documents\GitHub\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.csprojAssemblyReference.cache
