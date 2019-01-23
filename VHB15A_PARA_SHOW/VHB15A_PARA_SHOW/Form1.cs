@@ -114,14 +114,12 @@ namespace VHB15A_PARA_SHOW
             public const int HEAD0_VALUE = 0xAA;
             public const int HEAD1_VALUE = 0x55;
 
-            public static Int32 prev_recv_frame_cnt = 0;
-            public static Int32 recv_frame_cnt = 0;
+            //public static Int32 prev_recv_frame_cnt = 0;
+            //public static Int32 recv_frame_cnt = 0;
+            public static Int32 frame_received_cnt = 0;             //计算接收到多少帧，用于串口断线检测
+            public static List<Int32> only_3_elements_list = new List<int>();   //用于判断串口断线检测，只包含3个元素
+            public static Int32 disconnect_cnt = 0;                 //用于串口断线检测
 
-            ////请求内容ID
-            //public const int QUERY_ID_PATIENT_SIDE_TEMP = 0;
-            //public const int QUERY_ID_HUMIDITY = 1;
-            //public const int QUERY_ID_CHAMBER_OUTLET_TEMP = 2;
-            //public const int QUERY_ID_RUNNING_TIME = 3;
 
             //CMDTYPE_ID
             public const byte CMDTYPE_ID_PC_2_DEVICE = 0x01;   //表示PC机发送到设备
@@ -172,6 +170,25 @@ namespace VHB15A_PARA_SHOW
 
             //用来保存串口发送或接收的数据
             public static List<byte> m_buffer = new List<byte>();
+
+            public static void Add2Only3ElementsList()
+            {
+                if (QueryDevice.frame_received_cnt >= Convert.ToInt32(0x0FFFFF00))  //防止溢出
+                {
+                    QueryDevice.only_3_elements_list[0] = 0;
+                    QueryDevice.only_3_elements_list[1] = 0;
+                    QueryDevice.only_3_elements_list[2] = 0;
+                }
+
+                if (QueryDevice.only_3_elements_list != null)
+                {
+                    if (QueryDevice.only_3_elements_list.Count >= 3)
+                    {
+                        QueryDevice.only_3_elements_list.RemoveAt(0); //移除最开始的元素
+                    }
+                    QueryDevice.only_3_elements_list.Add(++QueryDevice.frame_received_cnt);
+                }
+            }
 
             public static void query_by_ID(int ID)
             {
@@ -488,24 +505,51 @@ namespace VHB15A_PARA_SHOW
 
         private void timer_serial_port_checking_Tick(object sender, EventArgs e)
         {
-            //累计误差怎么消除？
             //容错
             if (m_b_serialPortOpened)
             {
-                //监测, 串口线断了，没有数据过来，recv_frame_cnt会一直保持不变，而prev_recv_frame_cnt会一直增长
-                //如果差距越来越大，说明串口disconnect了
-                if (QueryDevice.prev_recv_frame_cnt - QueryDevice.recv_frame_cnt >= 25)   //25*200ms=5s内没有回应就认为没连接
+                if (QueryDevice.disconnect_cnt == 25)               //说明断线了  //25*200ms=5s内没有回应就认为没连接
                 {
-                    QueryDevice.prev_recv_frame_cnt = 0;
-                    QueryDevice.recv_frame_cnt = 0;
+                    QueryDevice.disconnect_cnt = 0;
+
+                    //QueryDevice.prev_recv_frame_cnt = 0;
+                    //QueryDevice.recv_frame_cnt = 0;
 
                     //初始化app，当接收不到数据时
                     InitAppWhenNoConnecting();
                 }
                 else
                 {
-                    QueryDevice.prev_recv_frame_cnt++;
+                    if (QueryDevice.only_3_elements_list != null && QueryDevice.only_3_elements_list.Count == 3)
+                    {
+                        //如果3个值都一样，说明没有接收到数据，断线了
+                        if (QueryDevice.only_3_elements_list[0] == QueryDevice.only_3_elements_list[1] && QueryDevice.only_3_elements_list[0] == QueryDevice.only_3_elements_list[2])
+                        {
+                            QueryDevice.disconnect_cnt++;        //如果一直稳定的断线，就一直累加
+                        }
+                        else
+                        {
+                            QueryDevice.disconnect_cnt = 0;      //如果断线后又突然连上了，马上清空之前的累加，重新计数
+                        }
+                    }
                 }
+
+                
+
+                ////监测, 串口线断了，没有数据过来，recv_frame_cnt会一直保持不变，而prev_recv_frame_cnt会一直增长
+                ////如果差距越来越大，说明串口disconnect了
+                //if (QueryDevice.prev_recv_frame_cnt - QueryDevice.recv_frame_cnt >= 25)   //25*200ms=5s内没有回应就认为没连接
+                //{
+                //    QueryDevice.prev_recv_frame_cnt = 0;
+                //    QueryDevice.recv_frame_cnt = 0;
+
+                //    //初始化app，当接收不到数据时
+                //    InitAppWhenNoConnecting();
+                //}
+                //else
+                //{
+                //    QueryDevice.prev_recv_frame_cnt++;
+                //}
             }
 
             string[] names = SerialPort.GetPortNames();   //获取当前serial port端口名称
@@ -667,7 +711,9 @@ namespace VHB15A_PARA_SHOW
                         {
                             //解析数据
                             ParseData2Lists();
-                            QueryDevice.recv_frame_cnt++; //收到一条就记录一个
+                            //QueryDevice.recv_frame_cnt++; //收到一条就记录一个
+
+                            QueryDevice.Add2Only3ElementsList();
                         }
                         else
                         {
