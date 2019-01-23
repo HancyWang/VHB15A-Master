@@ -35,14 +35,18 @@
             this.label_alarm_sound_status = new System.Windows.Forms.Label();
             this.button_alarm_sound_enable_disable = new System.Windows.Forms.Button();
             this.textBox_alarm_info = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_patient_side_temp = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label_running_time_value = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label_chamber_outlet_temp_value = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label_Humidity_value = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label_running_time_value = new System.Windows.Forms.Label();
+            this.label_running_time = new System.Windows.Forms.Label();
+            this.label_chamber_outlet_temp_value = new System.Windows.Forms.Label();
+            this.label_chamber_outlet_temp = new System.Windows.Forms.Label();
+            this.label_Humidity_value = new System.Windows.Forms.Label();
+            this.label_humidity = new System.Windows.Forms.Label();
             this.label_patient_side_temp_value = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.comboBox_para_mode = new System.Windows.Forms.ComboBox();
@@ -76,12 +80,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.timer_serial_port_checking = new System.Windows.Forms.Timer(this.components);
             this.timer_query = new System.Windows.Forms.Timer(this.components);
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_alarm_sound_state)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_serial_port_connecting)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -92,9 +98,9 @@
             this.groupBox1.Controls.Add(this.label_alarm_sound_status);
             this.groupBox1.Controls.Add(this.button_alarm_sound_enable_disable);
             this.groupBox1.Controls.Add(this.textBox_alarm_info);
-            this.groupBox1.Location = new System.Drawing.Point(289, 13);
+            this.groupBox1.Location = new System.Drawing.Point(280, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1087, 142);
+            this.groupBox1.Size = new System.Drawing.Size(1082, 105);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Alarm Info.";
@@ -137,95 +143,139 @@
             this.textBox_alarm_info.Size = new System.Drawing.Size(449, 25);
             this.textBox_alarm_info.TabIndex = 0;
             // 
-            // label2
+            // label_patient_side_temp
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Patient Side Temp. :";
+            this.label_patient_side_temp.AutoSize = true;
+            this.label_patient_side_temp.Location = new System.Drawing.Point(14, 131);
+            this.label_patient_side_temp.Name = "label_patient_side_temp";
+            this.label_patient_side_temp.Size = new System.Drawing.Size(167, 15);
+            this.label_patient_side_temp.TabIndex = 1;
+            this.label_patient_side_temp.Text = "Patient Side Temp. :";
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label_running_time_value);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label_chamber_outlet_temp_value);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label_Humidity_value);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label_patient_side_temp_value);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(289, 159);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label_running_time_value);
+            this.groupBox2.Controls.Add(this.label_running_time);
+            this.groupBox2.Controls.Add(this.label_chamber_outlet_temp_value);
+            this.groupBox2.Controls.Add(this.label_chamber_outlet_temp);
+            this.groupBox2.Controls.Add(this.label_Humidity_value);
+            this.groupBox2.Controls.Add(this.label_humidity);
+            this.groupBox2.Controls.Add(this.label_patient_side_temp_value);
+            this.groupBox2.Controls.Add(this.label_patient_side_temp);
+            this.groupBox2.Location = new System.Drawing.Point(280, 124);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1087, 303);
+            this.groupBox2.Size = new System.Drawing.Size(1082, 494);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            // 
-            // label_running_time_value
-            // 
-            this.label_running_time_value.AutoSize = true;
-            this.label_running_time_value.Location = new System.Drawing.Point(296, 29);
-            this.label_running_time_value.Name = "label_running_time_value";
-            this.label_running_time_value.Size = new System.Drawing.Size(15, 15);
-            this.label_running_time_value.TabIndex = 8;
-            this.label_running_time_value.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 15);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Running Time :";
-            // 
-            // label_chamber_outlet_temp_value
-            // 
-            this.label_chamber_outlet_temp_value.AutoSize = true;
-            this.label_chamber_outlet_temp_value.Location = new System.Drawing.Point(296, 243);
-            this.label_chamber_outlet_temp_value.Name = "label_chamber_outlet_temp_value";
-            this.label_chamber_outlet_temp_value.Size = new System.Drawing.Size(15, 15);
-            this.label_chamber_outlet_temp_value.TabIndex = 6;
-            this.label_chamber_outlet_temp_value.Text = "0";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 243);
+            this.label4.Location = new System.Drawing.Point(7, 187);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 15);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Chamber Outlet Temp. :";
-            // 
-            // label_Humidity_value
-            // 
-            this.label_Humidity_value.AutoSize = true;
-            this.label_Humidity_value.Location = new System.Drawing.Point(296, 162);
-            this.label_Humidity_value.Name = "label_Humidity_value";
-            this.label_Humidity_value.Size = new System.Drawing.Size(15, 15);
-            this.label_Humidity_value.TabIndex = 4;
-            this.label_Humidity_value.Text = "0";
+            this.label4.Size = new System.Drawing.Size(0, 15);
+            this.label4.TabIndex = 12;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 162);
+            this.label3.Location = new System.Drawing.Point(11, 404);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Humidity:";
+            this.label3.Size = new System.Drawing.Size(159, 15);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "(degree centigrade)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "(degree centigrade)";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "(D:H:M)";
+            // 
+            // label_running_time_value
+            // 
+            this.label_running_time_value.AutoSize = true;
+            this.label_running_time_value.Font = new System.Drawing.Font("宋体", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_running_time_value.Location = new System.Drawing.Point(460, 15);
+            this.label_running_time_value.Name = "label_running_time_value";
+            this.label_running_time_value.Size = new System.Drawing.Size(45, 48);
+            this.label_running_time_value.TabIndex = 8;
+            this.label_running_time_value.Text = "0";
+            // 
+            // label_running_time
+            // 
+            this.label_running_time.AutoSize = true;
+            this.label_running_time.Location = new System.Drawing.Point(14, 34);
+            this.label_running_time.Name = "label_running_time";
+            this.label_running_time.Size = new System.Drawing.Size(119, 15);
+            this.label_running_time.TabIndex = 7;
+            this.label_running_time.Text = "Running Time :";
+            // 
+            // label_chamber_outlet_temp_value
+            // 
+            this.label_chamber_outlet_temp_value.AutoSize = true;
+            this.label_chamber_outlet_temp_value.Font = new System.Drawing.Font("宋体", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_chamber_outlet_temp_value.Location = new System.Drawing.Point(433, 333);
+            this.label_chamber_outlet_temp_value.Name = "label_chamber_outlet_temp_value";
+            this.label_chamber_outlet_temp_value.Size = new System.Drawing.Size(111, 120);
+            this.label_chamber_outlet_temp_value.TabIndex = 6;
+            this.label_chamber_outlet_temp_value.Text = "0";
+            // 
+            // label_chamber_outlet_temp
+            // 
+            this.label_chamber_outlet_temp.AutoSize = true;
+            this.label_chamber_outlet_temp.Location = new System.Drawing.Point(12, 380);
+            this.label_chamber_outlet_temp.Name = "label_chamber_outlet_temp";
+            this.label_chamber_outlet_temp.Size = new System.Drawing.Size(183, 15);
+            this.label_chamber_outlet_temp.TabIndex = 5;
+            this.label_chamber_outlet_temp.Text = "Chamber Outlet Temp. :";
+            // 
+            // label_Humidity_value
+            // 
+            this.label_Humidity_value.AutoSize = true;
+            this.label_Humidity_value.Font = new System.Drawing.Font("宋体", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Humidity_value.Location = new System.Drawing.Point(433, 203);
+            this.label_Humidity_value.Name = "label_Humidity_value";
+            this.label_Humidity_value.Size = new System.Drawing.Size(111, 120);
+            this.label_Humidity_value.TabIndex = 4;
+            this.label_Humidity_value.Text = "0";
+            // 
+            // label_humidity
+            // 
+            this.label_humidity.AutoSize = true;
+            this.label_humidity.Location = new System.Drawing.Point(14, 265);
+            this.label_humidity.Name = "label_humidity";
+            this.label_humidity.Size = new System.Drawing.Size(119, 15);
+            this.label_humidity.TabIndex = 3;
+            this.label_humidity.Text = "Humidity(%RH):";
             // 
             // label_patient_side_temp_value
             // 
             this.label_patient_side_temp_value.AutoSize = true;
-            this.label_patient_side_temp_value.Location = new System.Drawing.Point(296, 94);
+            this.label_patient_side_temp_value.Font = new System.Drawing.Font("宋体", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_patient_side_temp_value.Location = new System.Drawing.Point(433, 71);
             this.label_patient_side_temp_value.Name = "label_patient_side_temp_value";
-            this.label_patient_side_temp_value.Size = new System.Drawing.Size(15, 15);
+            this.label_patient_side_temp_value.Size = new System.Drawing.Size(111, 120);
             this.label_patient_side_temp_value.TabIndex = 2;
             this.label_patient_side_temp_value.Text = "0";
+            this.label_patient_side_temp_value.Click += new System.EventHandler(this.label_patient_side_temp_value_Click);
             // 
             // groupBox3
             // 
@@ -245,9 +295,9 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(289, 468);
+            this.groupBox3.Location = new System.Drawing.Point(280, 624);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1087, 339);
+            this.groupBox3.Size = new System.Drawing.Size(1082, 359);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Parameters";
@@ -259,7 +309,7 @@
             this.comboBox_para_mode.Items.AddRange(new object[] {
             "Noninvasive",
             "Invasive"});
-            this.comboBox_para_mode.Location = new System.Drawing.Point(453, 99);
+            this.comboBox_para_mode.Location = new System.Drawing.Point(453, 88);
             this.comboBox_para_mode.Name = "comboBox_para_mode";
             this.comboBox_para_mode.Size = new System.Drawing.Size(184, 23);
             this.comboBox_para_mode.TabIndex = 17;
@@ -269,7 +319,7 @@
             // 
             this.comboBox_heater_wire_mode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_heater_wire_mode.FormattingEnabled = true;
-            this.comboBox_heater_wire_mode.Location = new System.Drawing.Point(453, 290);
+            this.comboBox_heater_wire_mode.Location = new System.Drawing.Point(453, 279);
             this.comboBox_heater_wire_mode.Name = "comboBox_heater_wire_mode";
             this.comboBox_heater_wire_mode.Size = new System.Drawing.Size(184, 23);
             this.comboBox_heater_wire_mode.TabIndex = 16;
@@ -278,7 +328,7 @@
             // 
             this.comboBox_para_in_exp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_para_in_exp.FormattingEnabled = true;
-            this.comboBox_para_in_exp.Location = new System.Drawing.Point(453, 241);
+            this.comboBox_para_in_exp.Location = new System.Drawing.Point(453, 230);
             this.comboBox_para_in_exp.Name = "comboBox_para_in_exp";
             this.comboBox_para_in_exp.Size = new System.Drawing.Size(184, 23);
             this.comboBox_para_in_exp.TabIndex = 15;
@@ -287,7 +337,7 @@
             // 
             this.comboBox_para_chamber_outlet_temp_setpoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_para_chamber_outlet_temp_setpoint.FormattingEnabled = true;
-            this.comboBox_para_chamber_outlet_temp_setpoint.Location = new System.Drawing.Point(453, 194);
+            this.comboBox_para_chamber_outlet_temp_setpoint.Location = new System.Drawing.Point(453, 183);
             this.comboBox_para_chamber_outlet_temp_setpoint.Name = "comboBox_para_chamber_outlet_temp_setpoint";
             this.comboBox_para_chamber_outlet_temp_setpoint.Size = new System.Drawing.Size(184, 23);
             this.comboBox_para_chamber_outlet_temp_setpoint.TabIndex = 14;
@@ -296,16 +346,17 @@
             // 
             this.comboBox_para_patient_side_temp_setpoint.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_para_patient_side_temp_setpoint.FormattingEnabled = true;
-            this.comboBox_para_patient_side_temp_setpoint.Location = new System.Drawing.Point(453, 145);
+            this.comboBox_para_patient_side_temp_setpoint.Location = new System.Drawing.Point(453, 134);
             this.comboBox_para_patient_side_temp_setpoint.Name = "comboBox_para_patient_side_temp_setpoint";
             this.comboBox_para_patient_side_temp_setpoint.Size = new System.Drawing.Size(184, 23);
             this.comboBox_para_patient_side_temp_setpoint.TabIndex = 13;
+            this.comboBox_para_patient_side_temp_setpoint.SelectedIndexChanged += new System.EventHandler(this.comboBox_para_patient_side_temp_setpoint_SelectedIndexChanged);
             // 
             // button_set_special_display_mode
             // 
-            this.button_set_special_display_mode.Location = new System.Drawing.Point(1014, 36);
+            this.button_set_special_display_mode.Location = new System.Drawing.Point(908, 32);
             this.button_set_special_display_mode.Name = "button_set_special_display_mode";
-            this.button_set_special_display_mode.Size = new System.Drawing.Size(46, 19);
+            this.button_set_special_display_mode.Size = new System.Drawing.Size(35, 20);
             this.button_set_special_display_mode.TabIndex = 12;
             this.button_set_special_display_mode.Text = "SET SPECIAL DISPALY MODE";
             this.button_set_special_display_mode.UseVisualStyleBackColor = true;
@@ -314,7 +365,7 @@
             // 
             // button_set_parameters
             // 
-            this.button_set_parameters.Location = new System.Drawing.Point(184, 36);
+            this.button_set_parameters.Location = new System.Drawing.Point(184, 32);
             this.button_set_parameters.Name = "button_set_parameters";
             this.button_set_parameters.Size = new System.Drawing.Size(92, 40);
             this.button_set_parameters.TabIndex = 11;
@@ -324,7 +375,7 @@
             // 
             // button_get_parameters
             // 
-            this.button_get_parameters.Location = new System.Drawing.Point(16, 36);
+            this.button_get_parameters.Location = new System.Drawing.Point(16, 32);
             this.button_get_parameters.Name = "button_get_parameters";
             this.button_get_parameters.Size = new System.Drawing.Size(92, 40);
             this.button_get_parameters.TabIndex = 10;
@@ -335,7 +386,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 298);
+            this.label10.Location = new System.Drawing.Point(10, 287);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(159, 15);
             this.label10.TabIndex = 4;
@@ -344,7 +395,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 249);
+            this.label9.Location = new System.Drawing.Point(10, 238);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 15);
             this.label9.TabIndex = 3;
@@ -353,7 +404,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 202);
+            this.label8.Location = new System.Drawing.Point(9, 191);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(255, 15);
             this.label8.TabIndex = 2;
@@ -362,7 +413,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 153);
+            this.label7.Location = new System.Drawing.Point(13, 142);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(239, 15);
             this.label7.TabIndex = 1;
@@ -371,7 +422,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 107);
+            this.label6.Location = new System.Drawing.Point(13, 96);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 15);
             this.label6.TabIndex = 0;
@@ -384,8 +435,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox4.Controls.Add(this.button_serial_port_connect);
             this.groupBox4.Controls.Add(this.pictureBox_serial_port_connecting);
             this.groupBox4.Controls.Add(this.comboBox_serial_port_flow_control);
@@ -400,21 +449,22 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Location = new System.Drawing.Point(12, 13);
+            this.groupBox4.Location = new System.Drawing.Point(8, 13);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(271, 783);
+            this.groupBox4.Size = new System.Drawing.Size(268, 970);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Serial Port ";
             // 
             // button_serial_port_connect
             // 
+            this.button_serial_port_connect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button_serial_port_connect.Location = new System.Drawing.Point(130, 389);
             this.button_serial_port_connect.Name = "button_serial_port_connect";
             this.button_serial_port_connect.Size = new System.Drawing.Size(99, 49);
             this.button_serial_port_connect.TabIndex = 13;
             this.button_serial_port_connect.Text = "CONNECT";
-            this.button_serial_port_connect.UseVisualStyleBackColor = true;
+            this.button_serial_port_connect.UseVisualStyleBackColor = false;
             this.button_serial_port_connect.Click += new System.EventHandler(this.button_serial_port_connect_Click);
             // 
             // pictureBox_serial_port_connecting
@@ -532,6 +582,7 @@
             // timer_serial_port_checking
             // 
             this.timer_serial_port_checking.Enabled = true;
+            this.timer_serial_port_checking.Interval = 200;
             this.timer_serial_port_checking.Tick += new System.EventHandler(this.timer_serial_port_checking_Tick);
             // 
             // timer_query
@@ -540,17 +591,30 @@
             this.timer_query.Interval = 200;
             this.timer_query.Tick += new System.EventHandler(this.timer_query_Tick);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.groupBox4);
+            this.groupBox5.Controls.Add(this.groupBox3);
+            this.groupBox5.Controls.Add(this.groupBox1);
+            this.groupBox5.Controls.Add(this.groupBox2);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(0, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1374, 997);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox5_Paint);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1396, 819);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1374, 997);
+            this.Controls.Add(this.groupBox5);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VHB15A Reader";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -563,6 +627,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_serial_port_connecting)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -574,15 +639,15 @@
         private System.Windows.Forms.Button button_alarm_sound_enable_disable;
         private System.Windows.Forms.TextBox textBox_alarm_info;
         private System.Windows.Forms.PictureBox pictureBox_alarm_sound_state;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_patient_side_temp;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label_patient_side_temp_value;
         private System.Windows.Forms.Label label_chamber_outlet_temp_value;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_chamber_outlet_temp;
         private System.Windows.Forms.Label label_Humidity_value;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_humidity;
         private System.Windows.Forms.Label label_running_time_value;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_running_time;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -615,6 +680,11 @@
         private System.Windows.Forms.ComboBox comboBox_para_chamber_outlet_temp_setpoint;
         private System.Windows.Forms.ComboBox comboBox_para_patient_side_temp_setpoint;
         private System.Windows.Forms.ComboBox comboBox_para_mode;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
 
