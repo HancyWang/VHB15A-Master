@@ -41,6 +41,8 @@ namespace VHB15A_PARA_SHOW
 
         private void InitAppWhenNoConnecting()
         {
+            QueryDevice.disconnect_cnt = 0;
+
             this.button_serial_port_connect.Text = "CONNECT";
             this.serialPort1.Close();
             m_b_serialPortOpened = false;
@@ -171,22 +173,27 @@ namespace VHB15A_PARA_SHOW
             //用来保存串口发送或接收的数据
             public static List<byte> m_buffer = new List<byte>();
 
-            public static void Add2Only3ElementsList()
+            public static void CheckDisconnect()
             {
                 if (QueryDevice.frame_received_cnt >= Convert.ToInt32(0x0FFFFF00))  //防止溢出
                 {
                     QueryDevice.only_3_elements_list[0] = 0;
-                    QueryDevice.only_3_elements_list[1] = 0;
-                    QueryDevice.only_3_elements_list[2] = 0;
                 }
 
-                if (QueryDevice.only_3_elements_list != null)
+                QueryDevice.only_3_elements_list.Add(QueryDevice.frame_received_cnt);
+
+                if (QueryDevice.only_3_elements_list.Count == 3)
                 {
-                    if (QueryDevice.only_3_elements_list.Count >= 3)
+                    //如果3个值都一样，说明没有接收到数据，断线了
+                    if (QueryDevice.only_3_elements_list[0] == QueryDevice.only_3_elements_list[1] && QueryDevice.only_3_elements_list[0] == QueryDevice.only_3_elements_list[2])
                     {
-                        QueryDevice.only_3_elements_list.RemoveAt(0); //移除最开始的元素
+                        QueryDevice.disconnect_cnt++;        //如果一直稳定的断线，就一直累加
                     }
-                    QueryDevice.only_3_elements_list.Add(++QueryDevice.frame_received_cnt);
+                    else
+                    {
+                        QueryDevice.disconnect_cnt = 0;      //如果断线后又突然连上了，马上清空之前的累加，重新计数
+                    }
+                    QueryDevice.only_3_elements_list.RemoveAt(0); //移除最开始的元素
                 }
             }
 
@@ -510,28 +517,12 @@ namespace VHB15A_PARA_SHOW
             {
                 if (QueryDevice.disconnect_cnt == 25)               //说明断线了  //25*200ms=5s内没有回应就认为没连接
                 {
-                    QueryDevice.disconnect_cnt = 0;
-
-                    //QueryDevice.prev_recv_frame_cnt = 0;
-                    //QueryDevice.recv_frame_cnt = 0;
-
                     //初始化app，当接收不到数据时
                     InitAppWhenNoConnecting();
                 }
                 else
                 {
-                    if (QueryDevice.only_3_elements_list != null && QueryDevice.only_3_elements_list.Count == 3)
-                    {
-                        //如果3个值都一样，说明没有接收到数据，断线了
-                        if (QueryDevice.only_3_elements_list[0] == QueryDevice.only_3_elements_list[1] && QueryDevice.only_3_elements_list[0] == QueryDevice.only_3_elements_list[2])
-                        {
-                            QueryDevice.disconnect_cnt++;        //如果一直稳定的断线，就一直累加
-                        }
-                        else
-                        {
-                            QueryDevice.disconnect_cnt = 0;      //如果断线后又突然连上了，马上清空之前的累加，重新计数
-                        }
-                    }
+                    QueryDevice.CheckDisconnect();
                 }
 
                 
@@ -713,7 +704,7 @@ namespace VHB15A_PARA_SHOW
                             ParseData2Lists();
                             //QueryDevice.recv_frame_cnt++; //收到一条就记录一个
 
-                            QueryDevice.Add2Only3ElementsList();
+                            ++(QueryDevice.frame_received_cnt);
                         }
                         else
                         {
