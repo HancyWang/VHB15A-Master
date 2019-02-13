@@ -41,6 +41,8 @@ namespace VHB15A_PARA_SHOW
 
         private void InitAppWhenNoConnecting()
         {
+            QueryDevice.m_prev_para.Clear();
+
             QueryDevice.disconnect_cnt = 0;
 
             this.button_serial_port_connect.Text = "CONNECT";
@@ -50,6 +52,7 @@ namespace VHB15A_PARA_SHOW
             this.comboBox_serial_port_name.Enabled = true;
 
             //清空app上的数据
+            button_set_parameters.Enabled = false;
             textBox_alarm_info.Text = "";
 
             label_running_time_value.Text = @"/";
@@ -166,9 +169,10 @@ namespace VHB15A_PARA_SHOW
             public const int FRAME_LEN_OF_RECEIVE_RUNNING_TIME = 10;
 
             //用来保存当前的请求内容编号,采用轮询的方式200ms发送一个请求
-            public static byte m_query_queue_No = 0x04;  //循环query 0,1,2,3..0,1,2,3...  
+            public static byte m_query_queue_No = 0x01;  //循环query 0,1,2,3..0,1,2,3...  
             public static byte m_prev_query_queue_No = 0x01;
-            
+
+            public static List<byte> m_prev_para = new List<byte>();
 
             //用来保存串口发送或接收的数据
             public static List<byte> m_buffer = new List<byte>();
@@ -194,6 +198,47 @@ namespace VHB15A_PARA_SHOW
                         QueryDevice.disconnect_cnt = 0;      //如果断线后又突然连上了，马上清空之前的累加，重新计数
                     }
                     QueryDevice.only_3_elements_list.RemoveAt(0); //移除最开始的元素
+                }
+            }
+
+            public static bool IsParametersRefreshed(List<byte> list)
+            {
+                int cnt = 0;
+                if (QueryDevice.m_prev_para.Count == list.Count)             //如果长度一样就进行判断
+                {
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        if (QueryDevice.m_prev_para[i] == list[i])
+                        {
+                            cnt++;
+                        }
+                    }
+
+                    if (cnt == QueryDevice.m_prev_para.Count)                         //如果每一个都一样，则说明没有改变
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        QueryDevice.m_prev_para.Clear();
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            QueryDevice.m_prev_para.Add(list[i]);       //将现有的m_buffer赋值给m_prev_para
+                        }
+                        return true;
+                    }
+                }
+                else
+                {
+                    if (QueryDevice.m_prev_para.Count == 0)
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            QueryDevice.m_prev_para.Add(list[i]);       //将现有的m_buffer赋值给m_prev_para
+                        }
+                    }
+                    
+                    return true;
                 }
             }
 
@@ -524,23 +569,6 @@ namespace VHB15A_PARA_SHOW
                 {
                     QueryDevice.CheckDisconnect();
                 }
-
-                
-
-                ////监测, 串口线断了，没有数据过来，recv_frame_cnt会一直保持不变，而prev_recv_frame_cnt会一直增长
-                ////如果差距越来越大，说明串口disconnect了
-                //if (QueryDevice.prev_recv_frame_cnt - QueryDevice.recv_frame_cnt >= 25)   //25*200ms=5s内没有回应就认为没连接
-                //{
-                //    QueryDevice.prev_recv_frame_cnt = 0;
-                //    QueryDevice.recv_frame_cnt = 0;
-
-                //    //初始化app，当接收不到数据时
-                //    InitAppWhenNoConnecting();
-                //}
-                //else
-                //{
-                //    QueryDevice.prev_recv_frame_cnt++;
-                //}
             }
 
             string[] names = SerialPort.GetPortNames();   //获取当前serial port端口名称
@@ -599,8 +627,10 @@ namespace VHB15A_PARA_SHOW
                     return;
                 }
                 this.button_serial_port_connect.Text = "DISCONNECT";
+                this.button_set_parameters.Enabled = true;
 
-                QueryDevice.m_query_queue_No = 0x04;  //拔掉串口，在插入，m_query_queue_No从0x04开始
+                QueryDevice.m_query_queue_No = 0x01;  //拔掉串口，在插入，m_query_queue_No从0x04开始
+                QueryDevice.m_prev_query_queue_No = 0x01;
                 m_b_serialPortOpened = true;
                 this.comboBox_serial_port_name.Enabled = false;
                 LoadPicture();
@@ -640,11 +670,13 @@ namespace VHB15A_PARA_SHOW
                     QueryDevice.m_prev_query_queue_No = QueryDevice.m_query_queue_No;
                     break;
                 case QueryDevice.FRAME_ID_QUERY_OUTLET_TEMP:                                                  //请求出气口温度，循环请求之一，不用按钮触发
-                    QueryDevice.m_query_queue_No = QueryDevice.FRAME_ID_QUERY_ALARM_INFO;
+                    //QueryDevice.m_query_queue_No = QueryDevice.FRAME_ID_QUERY_ALARM_INFO;
+                    QueryDevice.m_query_queue_No = QueryDevice.FRAME_ID_QUERY_PARAMETERS;
                     QueryDevice.m_prev_query_queue_No = QueryDevice.m_query_queue_No;
                     break;
-                case QueryDevice.FRAME_ID_QUERY_PARAMETERS:                                                   //请求参数
-                    QueryDevice.m_query_queue_No = QueryDevice.m_prev_query_queue_No;                         
+                case QueryDevice.FRAME_ID_QUERY_PARAMETERS:                                                   //请求参数 //2019.02.13更改成轮询,不需要按钮了
+                    QueryDevice.m_query_queue_No = QueryDevice.FRAME_ID_QUERY_ALARM_INFO;
+                    QueryDevice.m_prev_query_queue_No = QueryDevice.m_query_queue_No;
                     break;
                 case QueryDevice.FRAME_ID_QUERY_SETTING_PARAMETERS:                                          //请求设置参数
                     QueryDevice.m_query_queue_No = QueryDevice.m_prev_query_queue_No;
@@ -774,7 +806,8 @@ namespace VHB15A_PARA_SHOW
                             UInt16 result = Convert.ToUInt16(list[0] + list[1] * 256);
                             if (result <= 1000)    //湿度的值不能超过1000,否则就不更新数据
                             {
-                                label_Humidity_value.Text = String.Format("{0:N1}", (float)result / 10);
+                                //label_Humidity_value.Text = String.Format("{0:N1}", (float)result / 10);
+                                label_Humidity_value.Text = Convert.ToString(result / 10);
                             }
                         }
                     }
@@ -797,9 +830,12 @@ namespace VHB15A_PARA_SHOW
                     }
                     break;
                 case QueryDevice.FRAME_ID_RECEIVE_PARAMETERS:
-                    if (list.Count == 7)
+                    if (QueryDevice.IsParametersRefreshed(list))  //这里传list而不是m_buffer,因为m_buffer可能会粘包
                     {
-                        SetParametersby(list[0] == 0x00 ? MODE_NONINVASIVE : MODE_INVASIVE);
+                        if (list.Count == 7)
+                        {
+                            SetParametersby(list[0] == 0x00 ? MODE_NONINVASIVE : MODE_INVASIVE);
+                        }
                     }
                     break;
                 case QueryDevice.FRAME_ID_RECEIVE_ALARM_INFO:
@@ -905,6 +941,7 @@ namespace VHB15A_PARA_SHOW
         {
             if (m_b_serialPortOpened)
             {
+                QueryDevice.m_prev_para.Clear();
                 QueryDevice.m_query_queue_No = QueryDevice.FRAME_ID_QUERY_PARAMETERS;
             }
             else
@@ -975,7 +1012,7 @@ namespace VHB15A_PARA_SHOW
             //重插串口线后
             if (this.comboBox_para_mode.Text == @"/")
             {
-                MessageBox.Show("got you ");
+                //MessageBox.Show("got you ");
                 return;
             }
   

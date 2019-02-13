@@ -107,8 +107,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
@@ -121,9 +119,9 @@
             this.groupBox2.Controls.Add(this.label_humidity);
             this.groupBox2.Controls.Add(this.label_patient_side_temp_value);
             this.groupBox2.Controls.Add(this.label_patient_side_temp);
-            this.groupBox2.Location = new System.Drawing.Point(332, 129);
+            this.groupBox2.Location = new System.Drawing.Point(476, 109);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1046, 494);
+            this.groupBox2.Size = new System.Drawing.Size(1700, 470);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
@@ -241,15 +239,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.pictureBox_alarm_sound_state);
             this.groupBox1.Controls.Add(this.label_alarm_sound_status);
             this.groupBox1.Controls.Add(this.button_alarm_sound_enable_disable);
             this.groupBox1.Controls.Add(this.textBox_alarm_info);
-            this.groupBox1.Location = new System.Drawing.Point(332, 12);
+            this.groupBox1.Location = new System.Drawing.Point(476, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1046, 111);
+            this.groupBox1.Size = new System.Drawing.Size(1700, 97);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Alarm Info.";
@@ -258,7 +254,7 @@
             // 
             this.pictureBox_alarm_sound_state.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox_alarm_sound_state.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_alarm_sound_state.Image")));
-            this.pictureBox_alarm_sound_state.Location = new System.Drawing.Point(569, 48);
+            this.pictureBox_alarm_sound_state.Location = new System.Drawing.Point(569, 42);
             this.pictureBox_alarm_sound_state.Name = "pictureBox_alarm_sound_state";
             this.pictureBox_alarm_sound_state.Size = new System.Drawing.Size(206, 47);
             this.pictureBox_alarm_sound_state.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -268,7 +264,7 @@
             // label_alarm_sound_status
             // 
             this.label_alarm_sound_status.AutoSize = true;
-            this.label_alarm_sound_status.Location = new System.Drawing.Point(573, 23);
+            this.label_alarm_sound_status.Location = new System.Drawing.Point(573, 17);
             this.label_alarm_sound_status.Name = "label_alarm_sound_status";
             this.label_alarm_sound_status.Size = new System.Drawing.Size(159, 15);
             this.label_alarm_sound_status.TabIndex = 2;
@@ -276,7 +272,7 @@
             // 
             // button_alarm_sound_enable_disable
             // 
-            this.button_alarm_sound_enable_disable.Location = new System.Drawing.Point(814, 48);
+            this.button_alarm_sound_enable_disable.Location = new System.Drawing.Point(814, 42);
             this.button_alarm_sound_enable_disable.Name = "button_alarm_sound_enable_disable";
             this.button_alarm_sound_enable_disable.Size = new System.Drawing.Size(120, 44);
             this.button_alarm_sound_enable_disable.TabIndex = 1;
@@ -294,9 +290,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.comboBox_para_mode);
             this.groupBox3.Controls.Add(this.comboBox_heater_wire_mode);
             this.groupBox3.Controls.Add(this.comboBox_para_in_exp);
@@ -310,9 +303,9 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(332, 629);
+            this.groupBox3.Location = new System.Drawing.Point(476, 585);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1046, 353);
+            this.groupBox3.Size = new System.Drawing.Size(1700, 482);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Parameters";
@@ -380,9 +373,9 @@
             // 
             // button_set_parameters
             // 
-            this.button_set_parameters.Location = new System.Drawing.Point(184, 32);
+            this.button_set_parameters.Location = new System.Drawing.Point(127, 34);
             this.button_set_parameters.Name = "button_set_parameters";
-            this.button_set_parameters.Size = new System.Drawing.Size(92, 40);
+            this.button_set_parameters.Size = new System.Drawing.Size(82, 40);
             this.button_set_parameters.TabIndex = 11;
             this.button_set_parameters.Text = "SET";
             this.button_set_parameters.UseVisualStyleBackColor = true;
@@ -390,11 +383,11 @@
             // 
             // button_get_parameters
             // 
-            this.button_get_parameters.Location = new System.Drawing.Point(16, 32);
+            this.button_get_parameters.Location = new System.Drawing.Point(10, 34);
             this.button_get_parameters.Name = "button_get_parameters";
-            this.button_get_parameters.Size = new System.Drawing.Size(92, 40);
+            this.button_get_parameters.Size = new System.Drawing.Size(82, 40);
             this.button_get_parameters.TabIndex = 10;
-            this.button_get_parameters.Text = "GET";
+            this.button_get_parameters.Text = "RESTORE";
             this.button_get_parameters.UseVisualStyleBackColor = true;
             this.button_get_parameters.Click += new System.EventHandler(this.button_get_parameters_Click);
             // 
@@ -459,9 +452,9 @@
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Location = new System.Drawing.Point(12, 12);
+            this.groupBox4.Location = new System.Drawing.Point(12, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(314, 970);
+            this.groupBox4.Size = new System.Drawing.Size(452, 1061);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Serial Port ";
@@ -469,7 +462,7 @@
             // button_serial_port_connect
             // 
             this.button_serial_port_connect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.button_serial_port_connect.Location = new System.Drawing.Point(130, 389);
+            this.button_serial_port_connect.Location = new System.Drawing.Point(203, 412);
             this.button_serial_port_connect.Name = "button_serial_port_connect";
             this.button_serial_port_connect.Size = new System.Drawing.Size(99, 49);
             this.button_serial_port_connect.TabIndex = 13;
@@ -479,7 +472,7 @@
             // 
             // pictureBox_serial_port_connecting
             // 
-            this.pictureBox_serial_port_connecting.Location = new System.Drawing.Point(10, 389);
+            this.pictureBox_serial_port_connecting.Location = new System.Drawing.Point(10, 412);
             this.pictureBox_serial_port_connecting.Name = "pictureBox_serial_port_connecting";
             this.pictureBox_serial_port_connecting.Size = new System.Drawing.Size(54, 49);
             this.pictureBox_serial_port_connecting.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -489,7 +482,7 @@
             // comboBox_serial_port_flow_control
             // 
             this.comboBox_serial_port_flow_control.FormattingEnabled = true;
-            this.comboBox_serial_port_flow_control.Location = new System.Drawing.Point(130, 328);
+            this.comboBox_serial_port_flow_control.Location = new System.Drawing.Point(203, 328);
             this.comboBox_serial_port_flow_control.Name = "comboBox_serial_port_flow_control";
             this.comboBox_serial_port_flow_control.Size = new System.Drawing.Size(121, 23);
             this.comboBox_serial_port_flow_control.TabIndex = 11;
@@ -497,7 +490,7 @@
             // comboBox_serial_port_parity
             // 
             this.comboBox_serial_port_parity.FormattingEnabled = true;
-            this.comboBox_serial_port_parity.Location = new System.Drawing.Point(130, 275);
+            this.comboBox_serial_port_parity.Location = new System.Drawing.Point(203, 275);
             this.comboBox_serial_port_parity.Name = "comboBox_serial_port_parity";
             this.comboBox_serial_port_parity.Size = new System.Drawing.Size(121, 23);
             this.comboBox_serial_port_parity.TabIndex = 10;
@@ -505,7 +498,7 @@
             // comboBox_serial_port_stop_bits
             // 
             this.comboBox_serial_port_stop_bits.FormattingEnabled = true;
-            this.comboBox_serial_port_stop_bits.Location = new System.Drawing.Point(130, 215);
+            this.comboBox_serial_port_stop_bits.Location = new System.Drawing.Point(203, 215);
             this.comboBox_serial_port_stop_bits.Name = "comboBox_serial_port_stop_bits";
             this.comboBox_serial_port_stop_bits.Size = new System.Drawing.Size(121, 23);
             this.comboBox_serial_port_stop_bits.TabIndex = 9;
@@ -513,7 +506,7 @@
             // comboBox_serial_port_data_bits
             // 
             this.comboBox_serial_port_data_bits.FormattingEnabled = true;
-            this.comboBox_serial_port_data_bits.Location = new System.Drawing.Point(130, 159);
+            this.comboBox_serial_port_data_bits.Location = new System.Drawing.Point(203, 159);
             this.comboBox_serial_port_data_bits.Name = "comboBox_serial_port_data_bits";
             this.comboBox_serial_port_data_bits.Size = new System.Drawing.Size(121, 23);
             this.comboBox_serial_port_data_bits.TabIndex = 8;
@@ -521,7 +514,7 @@
             // comboBox_serial_port_baut_rate
             // 
             this.comboBox_serial_port_baut_rate.FormattingEnabled = true;
-            this.comboBox_serial_port_baut_rate.Location = new System.Drawing.Point(130, 99);
+            this.comboBox_serial_port_baut_rate.Location = new System.Drawing.Point(203, 99);
             this.comboBox_serial_port_baut_rate.Name = "comboBox_serial_port_baut_rate";
             this.comboBox_serial_port_baut_rate.Size = new System.Drawing.Size(121, 23);
             this.comboBox_serial_port_baut_rate.TabIndex = 7;
@@ -529,7 +522,7 @@
             // comboBox_serial_port_name
             // 
             this.comboBox_serial_port_name.FormattingEnabled = true;
-            this.comboBox_serial_port_name.Location = new System.Drawing.Point(130, 43);
+            this.comboBox_serial_port_name.Location = new System.Drawing.Point(203, 43);
             this.comboBox_serial_port_name.Name = "comboBox_serial_port_name";
             this.comboBox_serial_port_name.Size = new System.Drawing.Size(121, 23);
             this.comboBox_serial_port_name.TabIndex = 6;
@@ -594,15 +587,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1374, 997);
+            this.ClientSize = new System.Drawing.Size(1374, 733);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "VHB15A Data Reader";
+            this.Text = "VHB15A Data Reader(1.0.3)";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
