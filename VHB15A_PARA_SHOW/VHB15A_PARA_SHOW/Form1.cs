@@ -1203,12 +1203,14 @@ namespace VHB15A_PARA_SHOW
             {
                 comboBox_para_in_exp.Items.Add("1:1." + Convert.ToString(i));
             }
+            comboBox_para_in_exp.SelectedIndex = m_current_info.PARA_IN_EXP-1;
 
             //设置heater wire mode
             comboBox_heater_wire_mode.Items.Clear();
             comboBox_heater_wire_mode.Items.Add("Double Heater Wire");
             comboBox_heater_wire_mode.Items.Add("Insp Only");
             comboBox_heater_wire_mode.Items.Add("None");
+            comboBox_heater_wire_mode.SelectedIndex = m_current_info.PARA_HEATER_WIRE_MODE;
         }
 
         private void comboBox_para_patient_side_temp_setpoint_SelectedIndexChanged(object sender, EventArgs e)
@@ -1275,6 +1277,11 @@ namespace VHB15A_PARA_SHOW
         private void groupBox5_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.Clear(this.BackColor);
+        }
+
+        private void comboBox_para_in_exp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show("123");
         }
     }
 }

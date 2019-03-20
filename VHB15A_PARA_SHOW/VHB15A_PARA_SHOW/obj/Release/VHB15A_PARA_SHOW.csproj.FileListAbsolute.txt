@@ -17,3 +17,4 @@ D:\Users\LENOVO\Documents\GitHub\VHB15A-Master\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW
 D:\Users\LENOVO\Documents\GitHub\VHB15A-Master\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.csproj.CoreCompileInputs.cache
 D:\Users\LENOVO\Documents\GitHub\VHB15A-Master\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.exe
 D:\Users\LENOVO\Documents\GitHub\VHB15A-Master\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.pdb
+D:\Users\LENOVO\Documents\GitHub\VHB15A-Master\VHB15A_PARA_SHOW\VHB15A_PARA_SHOW\obj\Release\VHB15A_PARA_SHOW.csprojAssemblyReference.cache

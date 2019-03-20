@@ -163,7 +163,7 @@
             // label_running_time_value
             // 
             this.label_running_time_value.AutoSize = true;
-            this.label_running_time_value.Font = new System.Drawing.Font("宋体", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_running_time_value.Font = new System.Drawing.Font("SimSun", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_running_time_value.Location = new System.Drawing.Point(460, 15);
             this.label_running_time_value.Name = "label_running_time_value";
             this.label_running_time_value.Size = new System.Drawing.Size(45, 48);
@@ -182,7 +182,7 @@
             // label_chamber_outlet_temp_value
             // 
             this.label_chamber_outlet_temp_value.AutoSize = true;
-            this.label_chamber_outlet_temp_value.Font = new System.Drawing.Font("宋体", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_chamber_outlet_temp_value.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_chamber_outlet_temp_value.Location = new System.Drawing.Point(433, 333);
             this.label_chamber_outlet_temp_value.Name = "label_chamber_outlet_temp_value";
             this.label_chamber_outlet_temp_value.Size = new System.Drawing.Size(111, 120);
@@ -201,7 +201,7 @@
             // label_Humidity_value
             // 
             this.label_Humidity_value.AutoSize = true;
-            this.label_Humidity_value.Font = new System.Drawing.Font("宋体", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_Humidity_value.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_Humidity_value.Location = new System.Drawing.Point(433, 203);
             this.label_Humidity_value.Name = "label_Humidity_value";
             this.label_Humidity_value.Size = new System.Drawing.Size(111, 120);
@@ -220,7 +220,7 @@
             // label_patient_side_temp_value
             // 
             this.label_patient_side_temp_value.AutoSize = true;
-            this.label_patient_side_temp_value.Font = new System.Drawing.Font("宋体", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_patient_side_temp_value.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label_patient_side_temp_value.Location = new System.Drawing.Point(433, 71);
             this.label_patient_side_temp_value.Name = "label_patient_side_temp_value";
             this.label_patient_side_temp_value.Size = new System.Drawing.Size(111, 120);
@@ -340,6 +340,7 @@
             this.comboBox_para_in_exp.Name = "comboBox_para_in_exp";
             this.comboBox_para_in_exp.Size = new System.Drawing.Size(184, 23);
             this.comboBox_para_in_exp.TabIndex = 15;
+            this.comboBox_para_in_exp.SelectedIndexChanged += new System.EventHandler(this.comboBox_para_in_exp_SelectedIndexChanged);
             // 
             // comboBox_para_chamber_outlet_temp_setpoint
             // 
