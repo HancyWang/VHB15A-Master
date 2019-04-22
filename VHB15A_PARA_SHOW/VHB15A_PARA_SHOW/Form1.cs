@@ -1051,9 +1051,10 @@ namespace VHB15A_PARA_SHOW
                 comboBox_para_chamber_outlet_temp_setpoint.Items.Clear();
                 comboBox_para_chamber_outlet_temp_setpoint.Text = @"/";
             }
-            else if (Tc >= Tp - 40 && Tc <= Tp + 30)     //如果 Tp-40 <= Tc <= Tp+30才进行设置，否则就认为接收的数据出错，不用管
+            //else if (Tc >= Tp - 40 && Tc <= Tp + 30)     //如果 Tp-40 <= Tc <= Tp+30才进行设置，否则就认为接收的数据出错，不用管
+            else 
             {
-                //设置模式                                                                              //同时将模式信息放入m_current_info中
+                //设置模式                                                                              
                 if (QueryDevice.m_buffer[QueryDevice.FRAME_ID + 1] == 0x00)
                 {
                     this.comboBox_para_mode.Text = MODE_NONINVASIVE;
@@ -1061,8 +1062,16 @@ namespace VHB15A_PARA_SHOW
                 }
                 else if (QueryDevice.m_buffer[QueryDevice.FRAME_ID + 1] == 0x01)
                 {
-                    this.comboBox_para_mode.Text = MODE_INVASIVE;
-                    para_info.PARA_MODE = 0x01;
+                    if (Tc < Tp - 40 || Tc > Tp + 30)
+                    {
+                        MessageBox.Show("Error:Tc shoud be Tp-4<=Tc<=Tp+3");
+                        return;
+                    }
+                    else
+                    {
+                        this.comboBox_para_mode.Text = MODE_INVASIVE;
+                        para_info.PARA_MODE = 0x01;
+                    }
                 }
                 else
                 {
@@ -1114,7 +1123,8 @@ namespace VHB15A_PARA_SHOW
 
                 para_info.PARA_IN_EXP = QueryDevice.m_buffer[QueryDevice.FRAME_ID + 6];                             //将IN/EXP信息放入m_current_info中
 
-                if (QueryDevice.m_buffer[QueryDevice.FRAME_ID + 7] == 0x00)                                             //将heater wire mode信息放入m_current_info中
+                //设置heater wire mode
+                if (QueryDevice.m_buffer[QueryDevice.FRAME_ID + 7] == 0x00)                                            
                 {
                     comboBox_heater_wire_mode.Text = "Double Heater Wire";
                     para_info.PARA_HEATER_WIRE_MODE = 0x00;
@@ -1135,6 +1145,7 @@ namespace VHB15A_PARA_SHOW
                     return;
                 }
 
+                //将下位机的para数据存入m_current_info
                 m_current_info = para_info;
             }
         }
